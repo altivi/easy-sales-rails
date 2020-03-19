@@ -2,18 +2,12 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
   skip_before_filter :verify_authenticity_token
 
-  code_hide
-  code_hide
-  code_hide
-  
   before_filter :set_headers
-  # p 'test'
-  # p Temporary
-  # p Temporary
+
   include SentientController
 
   def set_headers
-    if request.headers["HTTP_ORIGIN"]     
+    if request.headers["HTTP_ORIGIN"]
       headers['Access-Control-Allow-Origin'] = request.headers["HTTP_ORIGIN"]
       headers['Access-Control-Expose-Headers'] = 'ETag'
       headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
@@ -21,7 +15,7 @@ class ApplicationController < ActionController::Base
       headers['Access-Control-Max-Age'] = '86400'
       headers['Access-Control-Allow-Credentials'] = 'true'
     end
-  end   
+  end
 
   private
     def after_sign_in_path_for(resource)

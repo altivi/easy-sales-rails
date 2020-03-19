@@ -6,24 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: erp2
-  username: postgres
-  password: postgres
-
-staging:
-  <<: *default
-  database: erp2
-  username: postgres
-  password: postgres
-
-production:
-  <<: *default
-  database: erp2
-  username: postgres
-  password: postgres
+  database: erp_development
+  username: alex
+  password: 123123
 
 test:
   <<: *default
-  database: erp2
-  username: postgres
-  password: postgres
+  database: erp_test
+  username: alex
+  password: 123123

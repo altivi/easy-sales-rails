@@ -12,35 +12,31 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    render status: 200, json: @employee.get_json_employee.as_json    
+    render status: 200, json: @employee.get_json_employee.as_json
   end
 
   def create
-    p 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-    p user = User.new(employee_params)
-    p 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
-    p user.employee.sales_user_id = current_user.id
-    p user.password = params[:password]
-    p user.password_confirmation = params[:password_confirmation]
+    user = User.new(employee_params)
+    user.employee.sales_user_id = current_user.id
+    user.password = params[:password]
+    user.password_confirmation = params[:password_confirmation]
     user.save
     if user.confirm
-      p 111111111111111111
       render status: 200, json: { employee_id: user.employee.id}
     else
-      p 2222222222222222222
       render status: 200, json: { message: user.errors.full_messages.first }
     end
-  end 
+  end
 
   def edit_form
-    render status: 200, json: @employee.get_json_employee_edit.as_json  
+    render status: 200, json: @employee.get_json_employee_edit.as_json
   end
 
   def update
     user = User.find(params[:id])
     if user.update_attributes(update_employee_params)
-      p user.password = params[:password]
-      p user.password_confirmation = params[:password_confirmation]
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
       user.save
       render status: 200, json: { employee_id: user.employee.id}
     else
@@ -58,7 +54,7 @@ class EmployeesController < ApplicationController
 
   def get_employees
     employees = User.sales_employees(current_user)
-    render status: 200, json: User.get_json_employees_dropdown(employees) 
+    render status: 200, json: User.get_json_employees_dropdown(employees)
   end
 
   def upload_photo
