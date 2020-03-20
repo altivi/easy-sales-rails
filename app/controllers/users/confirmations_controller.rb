@@ -18,11 +18,8 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     rescue Exception => e
       puts e
     end
-    if Rails.env.development?
-      redirect_to "http://localhost:3000/"
-    else
-      redirect_to root_url
-    end
+
+    redirect_to root_url
   end
 
   # protected

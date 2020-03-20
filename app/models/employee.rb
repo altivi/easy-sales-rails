@@ -3,7 +3,7 @@ class Employee < ActiveRecord::Base
 
   #Belongs To Relationship
   belongs_to :user
-  
+
   #Has Many Relationship
   has_many :expenses, dependent: :destroy
   has_many :payrolls, dependent: :destroy
@@ -13,7 +13,7 @@ class Employee < ActiveRecord::Base
 
   #Scope For the Active Record
   scope :with_active, -> { where('is_active = ?', true) }
-  
+
   #Creator,Updater to your ActiveRecord objects
   track_who_does_it
 
@@ -57,7 +57,7 @@ class Employee < ActiveRecord::Base
       :permanent_address_country,:resident_address_street, :resident_address_city,
       :resident_address_state,:resident_address_postalcode, :resident_address_country])
     .merge({
-      code:"EMP#{self.id.to_s.rjust(4, '0')}",
+      code: "EMP#{self.id.to_s.rjust(4, '0')}",
       name: self.user.full_name,
       first_name: self.user.first_name,
       last_name: self.user.last_name,
@@ -65,17 +65,17 @@ class Employee < ActiveRecord::Base
       email: self.user.email,
       date_of_joining: date_of_joining,
       date_of_birth: date_of_birth,
-      created_at:self.created_at.strftime('%d %B, %Y'),
-      created_by:self.creator.try(:full_name),
-      updated_at:self.updated_at.strftime('%d %B, %Y'),
-      updated_by:self.updater.try(:full_name),
-      photo:"https://erp-rails-app.herokuapp.com#{self.photo.url}",
+      created_at: self.created_at.strftime('%d %B, %Y'),
+      created_by: self.creator.try(:full_name),
+      updated_at: self.updated_at.strftime('%d %B, %Y'),
+      updated_by: self.updater.try(:full_name),
+      photo: "https://erp-rails-app.herokuapp.com#{self.photo.url}",
       timeclocks: self.timeclocks.with_active.get_json_timeclocks,
       expenses: self.expenses.with_active.get_json_expenses,
       payrolls: self.payrolls.with_active.get_json_payrolls,
-      has_photo:has_photo,
+      has_photo: has_photo,
     })
-  end 
+  end
 
   def self.get_json_employees
     employees_list =[]
@@ -96,33 +96,33 @@ class Employee < ActiveRecord::Base
       employee_attributes:{
         id: self.id,
         salutation: self.salutation,
-        gender: self.gender, 
-        b_group: self.b_group, 
-        nationality: self.nationality, 
+        gender: self.gender,
+        b_group: self.b_group,
+        nationality: self.nationality,
         designation: self.designation,
-        department: self.department, 
-        e_type: self.e_type, 
-        work_shift: self.work_shift, 
+        department: self.department,
+        e_type: self.e_type,
+        work_shift: self.work_shift,
         reporting_person: self.reporting_person,
-        allow_login: self.allow_login, 
+        allow_login: self.allow_login,
         religion: self.religion,
-        marital_status: self.marital_status, 
-        mobile: self.mobile, 
-        phone_office: self.phone_office, 
+        marital_status: self.marital_status,
+        mobile: self.mobile,
+        phone_office: self.phone_office,
         phone_home: self.phone_home,
         date_of_birth: self.date_of_birth,
         date_of_joining: self.date_of_joining,
         permanent_address_street: self.permanent_address_street,
-        permanent_address_city: self.permanent_address_city, 
+        permanent_address_city: self.permanent_address_city,
         permanent_address_state: self.permanent_address_state,
         permanent_address_postalcode: self.permanent_address_postalcode,
         permanent_address_country: self.permanent_address_country,
-        resident_address_street: self.resident_address_street, 
+        resident_address_street: self.resident_address_street,
         resident_address_city: self.resident_address_city,
         resident_address_state: self.resident_address_state,
-        resident_address_postalcode: self.resident_address_postalcode, 
+        resident_address_postalcode: self.resident_address_postalcode,
         resident_address_country: self.resident_address_country,
       }
     })
-  end 
+  end
 end

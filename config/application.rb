@@ -21,10 +21,10 @@ module ErpSystem
     # config.i18n.default_locale = :de
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.eager_load_paths += Dir["#{config.root}/lib/**/"]
-    
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }
     config.middleware.use Rack::Cors do

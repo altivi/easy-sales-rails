@@ -20,13 +20,9 @@ module Integrations
           flash[:notice] = "eBay account connected successfully"
           account = Account.find(session[:integration_session][:id])
           account.is_connected = true
-          account.save()
+          account.save
           flash[:notice] = 'Shopify account connected successfully'
-          if Rails.env.development?
-            redirect_to "http://localhost:8080/#/order-management/connected-accounts"
-          else
-            redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts"
-          end
+          redirect_to Settings.front_end_url + "/#/order-management/connected-accounts"
         rescue
           flash[:alert] = "There was an error connecting your eBay account"
           redirect_to redirect_url_on_failure

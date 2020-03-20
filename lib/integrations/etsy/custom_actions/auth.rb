@@ -21,29 +21,17 @@ module Integrations::Etsy::CustomActions
       }
       flash[:notice] = "Etsy account connected successfully"
 
-      if Rails.env.development?
-        redirect_to "http://localhost:8080/#/order-management/connected-accounts?success"
-      else
-        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?success"
-      end
+      redirect_to Settings.front_end_url + "/#/order-management/connected-accounts?success"
     rescue
       flash[:alert] = "There was an error connecting your Etsy account"
 
-      if Rails.env.development?
-        redirect_to "http://localhost:8080/#/order-management/connected-accounts?error"
-      else
-        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?error"
-      end
+      redirect_to Settings.front_end_url + "/#/order-management/connected-accounts?error"
     end
 
     def auth_fail_callback
       flash[:alert] = "It seems you rejected the authentication request. Account not connected"
 
-      if Rails.env.development?
-        redirect_to "http://localhost:8080/#/order-management/connected-accounts?reject"
-      else
-        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?reject"
-      end
+      redirect_to Settings.front_end_url + "/#/order-management/connected-accounts?reject"
     end
 
   end
