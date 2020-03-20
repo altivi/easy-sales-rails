@@ -7,13 +7,13 @@ class MaintananceSchedulesController < ApplicationController
     if params[:search_text].present?
       maintanance_schedules = MaintananceSchedule.search_box(params[:search_text],current_user.id).with_active.get_json_maintanance_schedules
     else
-      maintanance_schedules = MaintananceSchedule.search(params,current_user.id).with_active.get_json_maintanance_schedules
+      maintanance_schedules = MaintananceSchedule.search(params, current_user.id).with_active.get_json_maintanance_schedules
     end
     render status: 200, json: maintanance_schedules.as_json
   end
 
   def show
-    render status: 200, json: @maintanance_schedule.get_json_maintanance_schedule.as_json   
+    render status: 200, json: @maintanance_schedule.get_json_maintanance_schedule.as_json
   end
 
   def create
@@ -24,7 +24,7 @@ class MaintananceSchedulesController < ApplicationController
     else
       render status: 200, json: { message: maintanance_schedule.errors.full_messages.first }
     end
-  end 
+  end
 
   def update
     if @maintanance_schedule.update_attributes(maintanance_schedule_params)
