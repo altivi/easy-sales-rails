@@ -24,11 +24,11 @@ class SalesOrdersController < ApplicationController
     end
 
     def show
-      render status: 200, json: @sales_order.get_json_sales_order_show.as_json  
+      render status: 200, json: @sales_order.get_json_sales_order_show.as_json
     end
 
     def edit_form
-      render status: 200, json: @sales_order.get_json_sales_order_edit.as_json  
+      render status: 200, json: @sales_order.get_json_sales_order_edit.as_json
     end
 
     def update

@@ -1,11 +1,11 @@
 development:
-  key: n0eo4imqxpr4q4knmmz0pxi0
-  secret: 43dp9f5elw
+  key: nuc0k88fnghllep8tppy2qj2
+  secret: zpuivr2fxq
 
 staging:
-  key: n0eo4imqxpr4q4knmmz0pxi0
-  secret: 43dp9f5elw
+  key: nuc0k88fnghllep8tppy2qj2
+  secret: zpuivr2fxq
 
 production:
-  key: n0eo4imqxpr4q4knmmz0pxi0
-  secret: 43dp9f5elw
+  key: nuc0k88fnghllep8tppy2qj2
+  secret: zpuivr2fxq

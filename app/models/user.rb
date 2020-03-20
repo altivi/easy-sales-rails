@@ -104,7 +104,7 @@ class User < ActiveRecord::Base
         })
       end
       return list
-    end 
+    end
 
     def self.get_json_contacts_dropdown(users)
       list = []
@@ -126,7 +126,7 @@ class User < ActiveRecord::Base
         })
       end
       return list
-    end 
+    end
 
     def self.get_json_employees_dropdown(employees)
       list = []

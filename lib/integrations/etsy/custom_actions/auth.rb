@@ -20,18 +20,30 @@ module Integrations::Etsy::CustomActions
         :access_secret => access.secret
       }
       flash[:notice] = "Etsy account connected successfully"
-      # redirect_to "http://localhost:8080/#/order-management/connected-accounts?success"
-      redirect_to "https://erb-angular-app.herokuapp.com/#/order-management/connected-accounts?success"
+
+      if Rails.env.development?
+        redirect_to "http://localhost:8080/#/order-management/connected-accounts?success"
+      else
+        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?success"
+      end
     rescue
       flash[:alert] = "There was an error connecting your Etsy account"
-      # redirect_to "http://localhost:8080/#/order-management/connected-accounts?error"
-      redirect_to "https://erb-angular-app.herokuapp.com/#/order-management/connected-accounts?error"
+
+      if Rails.env.development?
+        redirect_to "http://localhost:8080/#/order-management/connected-accounts?error"
+      else
+        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?error"
+      end
     end
 
     def auth_fail_callback
       flash[:alert] = "It seems you rejected the authentication request. Account not connected"
-      # redirect_to "http://localhost:8080/#/order-management/connected-accounts?reject"
-      redirect_to "https://erb-angular-app.herokuapp.com/#/order-management/connected-accounts?reject"
+
+      if Rails.env.development?
+        redirect_to "http://localhost:8080/#/order-management/connected-accounts?reject"
+      else
+        redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts?reject"
+      end
     end
 
   end

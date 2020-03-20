@@ -19,8 +19,11 @@ module Integrations
         end
 
         def auth_success_callback
-          # redirect_to "http://localhost:8080/#/order-management/connected-accounts"
-          redirect_to "https://erb-angular-app.herokuapp.com/#/order-management/connected-accounts"
+          if Rails.env.development?
+            redirect_to "http://localhost:8080/#/order-management/connected-accounts"
+          else
+            redirect_to Rails.application.routes.url_helpers.root_url + "/#/order-management/connected-accounts"
+          end
         end
 
       end

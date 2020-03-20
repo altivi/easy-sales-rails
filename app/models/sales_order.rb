@@ -13,7 +13,7 @@ class SalesOrder < ActiveRecord::Base
   #Scope For the Active Record
   scope :with_active, -> { where('is_active = ?', true) }
   scope :with_invoice_active, -> { where('is_invoice_active = ?', true) }
-  
+
   #Creator,Updater to your ActiveRecord objects
   track_who_does_it
 
@@ -57,7 +57,7 @@ class SalesOrder < ActiveRecord::Base
       create_timestamp: create_timestamp,
       is_active: self.is_active,
     })
-  end 
+  end
 
   def self.get_json_sales_orders
     sales_orders_list =[]
@@ -126,7 +126,7 @@ class SalesOrder < ActiveRecord::Base
   end
 
 
-  def self.refresh_for_account(account, date_from = 127.days.ago.to_date, date_to = DateTime.now.to_date)
+  def self.refresh_for_account(account, date_from = 5.years.ago.to_date, date_to = DateTime.now.to_date)
     return false unless account.integration.logged_in?
     orders = account.integration.get_orders(date_from.to_datetime, date_to.to_datetime)
     puts orders
@@ -176,11 +176,11 @@ class SalesOrder < ActiveRecord::Base
                         :order_shipping_detail_id => shipping_detail.try(:id),
                         :update_timestamp => order[:last_update_at],
                         :status => order[:custom_status]
-                    }.merge({ 
+                    }.merge({
                         :grand_total => order[:totals][:grandtotal],
                         :subtotal => order[:totals][:subtotal],
                         :discount => order[:totals][:discount],
-                        :tax => order[:totals][:tax] 
+                        :tax => order[:totals][:tax]
                     }.select { |k, v| !v.blank? }
                     ).merge(order.slice(:payment_status,
                         :paid_at, :refunded_at,

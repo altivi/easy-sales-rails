@@ -6,6 +6,11 @@ module Integrations::Etsy
     Etsy.api_key = Rails.application.config_for('integrations/etsy')['key']
     Etsy.api_secret = Rails.application.config_for('integrations/etsy')['secret']
 
+    def initializer(state)
+      super
+      Etsy.single_user(*credentials.values)
+    end
+
     def logged_in?
       credentials && Etsy::User.myself(credentials[:access_token], credentials[:access_secret]) && true
     end

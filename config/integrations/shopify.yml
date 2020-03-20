@@ -1,11 +1,11 @@
 development:
-  api_key: 7e493d2e780aa8c02e09b34b64744a8b
-  secret: e0cba0c8570f8db0e4679affb8b24d3f
+  api_key: 29fba31d3e2a1adde611ffc072c0bac0
+  secret: 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
 
 staging:
-  api_key: 7e493d2e780aa8c02e09b34b64744a8b
-  secret: e0cba0c8570f8db0e4679affb8b24d3f
+  api_key: 29fba31d3e2a1adde611ffc072c0bac0
+  secret: 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
 
 production:
-  api_key: 7e493d2e780aa8c02e09b34b64744a8b
-  secret: e0cba0c8570f8db0e4679affb8b24d3f
+  api_key: 29fba31d3e2a1adde611ffc072c0bac0
+  secret: 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
