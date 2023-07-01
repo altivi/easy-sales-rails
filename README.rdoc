@@ -16,11 +16,11 @@ Easy Sales Rails is a Ruby on Rails application designed to simplify the managem
 
 To get started with Easy Sales Rails, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/altivi/easy-sales-rails.git`
-2. Install dependencies: Run `bundle install` to install the necessary gems.
-3. Database Setup: Configure your database settings in `config/database.yml` and run `rails db:create db:migrate` to create and migrate the database.
-4. Start the server: Run `rails server` to start the application server.
-5. Access the application: Open your web browser and visit `http://localhost:3000` to access the Easy Sales Rails application.
+1. **Clone the repository:** `git clone https://github.com/altivi/easy-sales-rails.git`
+2. **Install dependencies:** Run `bundle install` to install the necessary gems.
+3. **Database Setup:** Configure your database settings in `config/database.yml` and run `rails db:create db:migrate` to create and migrate the database.
+4. **Start the server:** Run `rails server` to start the application server.
+5. **Access the application:** Open your web browser and visit `http://localhost:3000` to access the Easy Sales Rails application.
 
 ## Contributing
 
