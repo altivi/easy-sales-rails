@@ -1,18 +1,18 @@
-# Easy Sales Rails
+= Easy Sales Rails
 
 Easy Sales Rails is a Ruby on Rails application designed to simplify the management of Etsy and Shopify orders, making it manageable from a single platform.
 
-## Features
+== Features
 
-- **Order Aggregation:** Easily manage orders from Etsy and Shopify within a single platform.
-- **User Management:** Register and manage user accounts with authentication and authorization features using the Devise gem.
-- **Customer Management:** Create, edit, and delete customer records. Perform actions such as searching and bulk deletion of customer data.
-- **Sales Order Management:** Efficiently create, edit, and search sales orders. Keep track of order details and manage the order lifecycle.
-- **Invoice Management:** Generate and manage invoices for sales orders. Create new invoices, update existing ones, and access invoices associated with specific orders.
-- **Inventory Management:** Seamlessly manage inventory items, categories, and supplier information. Add new items, update inventory levels, and link items to respective suppliers.
-- **Integration Custom Actions:** Enable custom actions for integrating with third-party services. Connect accounts, perform specific actions, and handle custom integration scenarios.
+* **Order Aggregation:** Easily manage orders from Etsy and Shopify within a single platform.
+* **User Management:** Register and manage user accounts with authentication and authorization features using the Devise gem.
+* **Customer Management:** Create, edit, and delete customer records. Perform actions such as searching and bulk deletion of customer data.
+* **Sales Order Management:** Efficiently create, edit, and search sales orders. Keep track of order details and manage the order lifecycle.
+* **Invoice Management:** Generate and manage invoices for sales orders. Create new invoices, update existing ones, and access invoices associated with specific orders.
+* **Inventory Management:** Seamlessly manage inventory items, categories, and supplier information. Add new items, update inventory levels, and link items to respective suppliers.
+* **Integration Custom Actions:** Enable custom actions for integrating with third-party services. Connect accounts, perform specific actions, and handle custom integration scenarios.
 
-## Getting Started
+== Getting Started
 
 To get started with Easy Sales Rails, follow these steps:
 
@@ -22,17 +22,17 @@ To get started with Easy Sales Rails, follow these steps:
 4. **Start the server:** Run `rails server` to start the application server.
 5. **Access the application:** Open your web browser and visit `http://localhost:3000` to access the Easy Sales Rails application.
 
-## Contributing
+== Contributing
 
 Contributions to Easy Sales Rails are highly appreciated. If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request. Kindly adhere to our contribution guidelines when making contributions.
 
-## License
+== License
 
 Easy Sales Rails is released under the [MIT License](https://opensource.org/licenses/MIT).
 
-## Additional Resources
+== Additional Resources
 
 For more information and detailed documentation, please refer to the following resources:
 
-- [Official Easy Sales Rails Repository](https://github.com/altivi/easy-sales-rails)
-- [Ruby on Rails Documentation](https://rubyonrails.org/documentation/)
+* [Official Easy Sales Rails Repository](https://github.com/altivi/easy-sales-rails)
+* [Ruby on Rails Documentation](https://rubyonrails.org/documentation/)
